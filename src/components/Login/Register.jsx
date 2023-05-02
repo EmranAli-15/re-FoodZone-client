@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const Register = () => {
-    const { creteUser } = useContext(AuthContext);
+    const { creteUser, updateUser, user } = useContext(AuthContext);
     const handleCreateUser = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -18,10 +18,18 @@ const Register = () => {
             .then(result => {
                 const signUp = result.user;
                 console.log(signUp);
+                handleUser(result.user, name, photo);
             })
             .catch(error => {
                 console.log(error.message);
             })
+        const handleUser = (user,name, photo) =>{
+            updateUser(user,name, photo)
+                .then(result => { const updatedUser = result.user; console.log(updatedUser) })
+                .catch(error => {
+                    console.log(error.message);
+                })
+        }
     }
     return (
         <div className="hero min-h-screen bg-base-200">
