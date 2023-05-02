@@ -12,21 +12,21 @@ const Header = () => {
             })
     }
     return (
-        <div className="navbar bg-base-400 shadow-xl sticky top-0">
+        <div className="navbar bg-sky-900 shadow-xl sticky top-0">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <img src="https://i.ibb.co/Lr95pVf/chef-1.jpg" alt="" />
                     </label>
-                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                    <ul tabIndex={0} className="text-white menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to="/">Home</Link></li>
                         <li><a>Blog</a></li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">Food Zone</a>
+                <a className="text-white btn btn-ghost normal-case text-xl">Food Zone</a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="text-white menu menu-horizontal px-1">
                     <li><Link to="/">Home</Link></li>
                     <li><a>Blog</a></li>
                 </ul>
