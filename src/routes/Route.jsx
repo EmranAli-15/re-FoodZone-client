@@ -4,6 +4,7 @@ import Prime from "../layout/Prime";
 import ChefRecipe from "../components/ChefRecipe/ChefRecipe";
 import Login from "../components/Login/Login";
 import Register from "../components/Login/Register";
+import PrivetRoute from "./PrivetRoute";
 
 const router = createBrowserRouter([
     {
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/chefRecipe/:id',
-                element: <ChefRecipe></ChefRecipe>,
+                element: <PrivetRoute><ChefRecipe></ChefRecipe></PrivetRoute>,
                 loader: ({params}) => fetch(`https://chef-recipes-emranali-15.vercel.app/chefRecipe/${params.id}`)
             },
             {
