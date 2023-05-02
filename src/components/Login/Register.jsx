@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Register = () => {
     const { creteUser, updateUser, user } = useContext(AuthContext);
@@ -13,7 +14,6 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log(name, photo, email, password);
         creteUser(email, password)
             .then(result => {
                 const signUp = result.user;
@@ -23,8 +23,8 @@ const Register = () => {
             .catch(error => {
                 console.log(error.message);
             })
-        const handleUser = (user,name, photo) =>{
-            updateUser(user,name, photo)
+        const handleUser = (user, name, photo) => {
+            updateUser(user, name, photo)
                 .then(result => { const updatedUser = result.user; console.log(updatedUser) })
                 .catch(error => {
                     console.log(error.message);
