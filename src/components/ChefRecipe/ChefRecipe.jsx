@@ -8,11 +8,11 @@ const ChefRecipe = () => {
     const { chefPhoto, chefName, yearsOfExperience, numberOfRecipes, numberOfLikes, bio, recipe } = data;
     return (
         <div>
-            <div className="card lg:card-side bg-base-100 p-4 shadow-xl">
-                <div>
-                    <img className='rounded-lg' src={chefPhoto} alt="Album" />
+            <div className="md:flex gap-x-20 items-center mt-8 shadow-lg">
+                <div className='w-[200px] h-[200px] md:w-[300px] md:h-[300px] p-2 md:p-10'>
+                    <img className='rounded-lg h-full w-full' src={chefPhoto} alt="Album" />
                 </div>
-                <div className='p-10'>
+                <div className='md:p-10 p-2 md:w-[60%]'>
                     <div className='flex gap-x-24 mb-6 items-center'>
                         <h2 className="text-3xl font-bold">{chefName}</h2>
                         <div className='flex gap-x-2 items-center'>
@@ -21,11 +21,14 @@ const ChefRecipe = () => {
                         </div>
                     </div>
                     <article>MySelf : {bio}</article>
-                    <div className='flex justify-evenly mt-24 items-center'>
-                        <h2>Recipes : {numberOfRecipes} items</h2>
-                        <h2>Experience : {yearsOfExperience} years</h2>
+                    <div className='flex justify-evenly mt-8 items-center'>
+                        <h2 className='text-xl'>Recipes : {numberOfRecipes} items</h2>
+                        <h2 className='text-xl'>Experience : {yearsOfExperience} years</h2>
                     </div>
                 </div>
+            </div>
+            <div>
+                <h1 className='text-4xl mt-8 px-4' style={{fontFamily: "Dancing Script"}}>Here are my some popular recipe</h1>
             </div>
             <div className='grid md:grid-cols-2 gap-8 my-8 px-4'>
                 {

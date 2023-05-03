@@ -14,7 +14,7 @@ const Blog = () => {
                 <div className='md:px-8 my-10'>
                     <section>
                         <h1 className='text-2xl mb-2'>1. What is the differences between uncontrolled and controlled components ?</h1>
-                        <p className='text-lg ms-4'>In React, controlled components refer to components that have their state and behavior controlled by the parent component. These components rely on props passed down from the parent component to update their state and behavior. Uncontrolled components refer to components that manage their own state internally. They use a ref to access the DOM elements current value and update the state accordingly.</p>
+                        <p className='text-lg ps-4'>In React, controlled components refer to components that have their state and behavior controlled by the parent component. These components rely on props passed down from the parent component to update their state and behavior. Uncontrolled components refer to components that manage their own state internally. They use a ref to access the DOM elements current value and update the state accordingly.</p>
                     </section>
                     <section className='my-8'>
                         <h1 className='text-2xl mb-2'>2. How to validate React props using PropTypes ?</h1>

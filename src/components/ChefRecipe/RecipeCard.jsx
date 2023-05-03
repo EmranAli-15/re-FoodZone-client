@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { FaRegHandPointRight } from "react-icons/fa";
+import { FaRegHandPointRight, FaStar, FaStarHalf } from "react-icons/fa";
+import Rating from 'react-rating';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -42,7 +43,7 @@ const RecipeCard = ({ data }) => {
                 pauseOnHover
                 theme="light" />
             <div className='flex items-center justify-around'>
-                <img className='w-[200px] h-[200px] rounded-lg' src="https://i.ibb.co/Lr95pVf/chef-1.jpg" alt="" />
+                <img className='w-[200px] h-[200px] rounded-lg' src={image} alt="" />
                 <h1 className='text-xl font-medium'>{recipeName}</h1>
             </div>
             <div className='my-4'>
@@ -52,8 +53,19 @@ const RecipeCard = ({ data }) => {
             </div>
             <p><span className='text-lg font-semibold'>Cooking Method :</span> {cookingMethod}</p>
             <hr className='mt-4' />
-            <div className='flex justify-between mt-6'>
-                <h1 className='text-lg'> rating : {rating}</h1>
+            <div className='flex justify-between mt-6 items-center'>
+                <div className='flex items-center'>
+                    <h1 className='text-lg'> rating : {rating}</h1>
+                    <h1 className='mt-[4px]'>
+                        <Rating
+                            readonly
+                            placeholderRating={rating}
+                            emptySymbol={<FaStarHalf className='text-transparent'></FaStarHalf>}
+                            placeholderSymbol={<FaStar className='text-orange-400'></FaStar>}
+                            fullSymbol={<FaStar></FaStar>}
+                        />
+                    </h1>
+                </div>
                 <button onClick={() => handleFavoriteBtn(id)} disabled={liked}>
                     <FaRegHandPointRight className={`${liked ? 'text-blue-600' : 'text-gray-600'} w-8 h-8`}></FaRegHandPointRight>
                 </button>
