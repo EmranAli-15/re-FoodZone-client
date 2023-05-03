@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
 
 const Register = () => {
-    const { creteUser, updateUser, user } = useContext(AuthContext);
+    const { creteUser, updateUser } = useContext(AuthContext);
+    const [error, setError] = useState('');
     const handleCreateUser = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -13,21 +13,24 @@ const Register = () => {
         const photo = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
+        setError('');
 
-        creteUser(email, password)
-            .then(result => {
-                const signUp = result.user;
-                console.log(signUp);
-                handleUser(result.user, name, photo);
-            })
-            .catch(error => {
-                console.log(error.message);
-            })
-        const handleUser = (user, name, photo) => {
-            updateUser(user, name, photo)
-                .then(result => { const updatedUser = result.user; console.log(updatedUser) })
+        if (password.length < 6) {
+            return setError('Password must at least 6 digit');
+        }
+        else {
+            creteUser(email, password)
+                .then(result => {
+                    const signUp = result.user;
+                    updateUser(signUp, name, photo)
+                        .then(result => { })
+                        .catch(error => {
+                            setError(error.message);
+                        })
+                })
                 .catch(error => {
-                    console.log(error.message);
+                    const errorMsg = error.message
+                    setError(errorMsg);
                 })
         }
     }
@@ -40,6 +43,7 @@ const Register = () => {
                 <form onSubmit={handleCreateUser} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
                         <div className="form-control">
+                            <p className='text-red-500'>{error}</p>
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>

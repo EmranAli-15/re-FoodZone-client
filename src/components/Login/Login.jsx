@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { FcGoogle } from "react-icons/fc";
 import { GoMarkGithub } from "react-icons/go";
@@ -7,21 +7,26 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
     const { signInUser, loginWithGoogle, loginWithGithub } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/category/0";
     const handleCreateUser = (event) => {
         event.preventDefault();
 
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value
+        setError('');
 
         console.log(email, password);
         signInUser(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                navigate(from, { replace: true });
             })
             .catch(error => {
-                console.log(error.message);
+                setError('Email or password was wrong !');
             })
     }
 
@@ -33,7 +38,7 @@ const Login = () => {
                 console.log(loggedUser);
             })
             .catch(error => {
-                console.log(error.message);
+                setError(error.message);
             })
     }
 
@@ -45,7 +50,7 @@ const Login = () => {
                 console.log(loggedUser);
             })
             .catch(error => {
-                console.log(error.message);
+                setError(error.message);
             })
     }
     return (
@@ -56,6 +61,7 @@ const Login = () => {
                 </div>
                 <form onSubmit={handleCreateUser} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
+                        <p className='text-red-500'>{error}</p>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>

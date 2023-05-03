@@ -6,6 +6,7 @@ import Login from "../components/Login/Login";
 import Register from "../components/Login/Register";
 import PrivetRoute from "./PrivetRoute";
 import ErrorPage from "../components/Shared/ErrorPage";
+import Blog from "../components/Blog/Blog";
 
 const router = createBrowserRouter([
     {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
             },
             {
                 path: '/chefRecipe/:id',
