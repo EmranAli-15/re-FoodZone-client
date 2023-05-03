@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { FcGoogle } from "react-icons/fc";
 import { GoMarkGithub } from "react-icons/go";
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
-    const { signInUser, loginWithGoogle } = useContext(AuthContext);
+    const { signInUser, loginWithGoogle, loginWithGithub } = useContext(AuthContext);
     const handleCreateUser = (event) => {
         event.preventDefault();
 
@@ -26,15 +26,27 @@ const Login = () => {
     }
 
     const googleProvider = new GoogleAuthProvider();
-    const loginWithGoogleProvider = () =>{
+    const loginWithGoogleProvider = () => {
         loginWithGoogle(googleProvider)
-        .then(result=>{
-            const loggedUser = result.user;
-            console.log(loggedUser);
-        })
-        .catch(error=>{
-            console.log(error.message);
-        })
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
+
+    const githubProvider = new GithubAuthProvider();
+    const loginWithGithubProvider = () => {
+        loginWithGithub(githubProvider)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -65,11 +77,11 @@ const Login = () => {
                         </div>
                         <div className='mt-10'>
                             <button onClick={loginWithGoogleProvider} className='flex items-center gap-x-2 w-full justify-center border rounded-md p-2'><FcGoogle></FcGoogle> Login with google</button>
-                            <button className='flex items-center gap-x-2 w-full justify-center border rounded-md p-2 mt-2'><GoMarkGithub></GoMarkGithub> Login with github</button>
+                            <button onClick={loginWithGithubProvider} className='flex items-center gap-x-2 w-full justify-center border rounded-md p-2 mt-2'><GoMarkGithub></GoMarkGithub> Login with github</button>
                         </div>
                     </div>
                 </form>
-            </div> 
+            </div>
         </div>
     );
 };

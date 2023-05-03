@@ -6,7 +6,7 @@ const FoodCart = ({ food }) => {
     const { id, chefName, chefPhoto, yearsOfExperience, numberOfRecipes, numberOfLikes } = food;
     return (
         <div className='border-2 rounded-md p-4'>
-            <div className='flex justify-evenly items-center py-4 mb-6'>
+            <div className='flex shadow-sm justify-evenly items-center py-4 mb-6'>
                 <img className='h-32 w-32 rounded-full opacity-75' src={chefPhoto} alt="" />
                 <h1 className='text-2xl font-bold'>{chefName}</h1>
             </div>

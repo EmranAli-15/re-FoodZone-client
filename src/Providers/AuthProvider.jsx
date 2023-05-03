@@ -11,7 +11,10 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     const loginWithGoogle = (googleProvider) =>{
-        signInWithPopup(auth, googleProvider)
+        return signInWithPopup(auth, googleProvider)
+    }
+    const loginWithGithub = (githubProvider) =>{
+        return signInWithPopup(auth, githubProvider)
     }
     const creteUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
@@ -41,6 +44,7 @@ const AuthProvider = ({ children }) => {
     {
         creteUser,
         loginWithGoogle,
+        loginWithGithub,
         signInUser,
         logOut,
         user,
