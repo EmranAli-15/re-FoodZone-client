@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import { Tooltip } from 'react-tooltip'
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -32,11 +33,16 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-x-6">
+                <Tooltip className='text-white -mr-4' anchorSelect=".my-anchor-element" place="top">
+                    {
+                        user && user.displayName
+                    }
+                </Tooltip>
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                     {
                         user && <div className="w-10 rounded-full">
-                        <img src={user.photoURL} />
-                    </div>
+                            <a className="my-anchor-element"><img src={user.photoURL} /></a>
+                        </div>
                     }
                 </label>
                 {
