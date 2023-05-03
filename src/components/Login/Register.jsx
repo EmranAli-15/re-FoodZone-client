@@ -21,17 +21,15 @@ const Register = () => {
         else {
             creteUser(email, password)
                 .then(result => {
-                    console.log(result.user);
                     updateUser(result.user, name, photo)
-                        .then(result => { console.log(result.user) })
+                        .then(result => { })
                         .catch(error => {
-                            console.log(error);
                             setError(error.message);
                         })
+                    form.reset();
                 })
                 .catch(error => {
                     const errorMsg = error.message
-                    console.log(errorMsg);
                     setError(errorMsg);
                 })
         }

@@ -20,15 +20,15 @@ const ChefRecipe = () => {
                             <p className='font-semibold text-lg'>{numberOfLikes}</p>
                         </div>
                     </div>
-                    <article>MySelf : {bio}</article>
-                    <div className='flex justify-evenly mt-8 items-center'>
-                        <h2 className='text-xl'>Recipes : {numberOfRecipes} items</h2>
-                        <h2 className='text-xl'>Experience : {yearsOfExperience} years</h2>
+                    <article><u className='font-medium text-lg'><i>MySelf</i> :</u> {bio}</article>
+                    <div className='md:flex justify-evenly mt-8 items-center'>
+                        <h2 className='text-xl'><span className='font-semibold'>Recipes :</span> {numberOfRecipes} items</h2>
+                        <h2 className='text-xl'><span className='font-semibold'>Experience :</span> {yearsOfExperience} years</h2>
                     </div>
                 </div>
             </div>
             <div>
-                <h1 className='text-4xl mt-8 px-4' style={{fontFamily: "Dancing Script"}}>Here are my some popular recipe</h1>
+                <h1 className='text-4xl mt-8 px-4' style={{ fontFamily: "Dancing Script" }}>Here are my some popular recipe</h1>
             </div>
             <div className='grid md:grid-cols-2 gap-8 my-8 px-4'>
                 {

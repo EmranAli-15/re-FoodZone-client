@@ -10,11 +10,11 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    const loginWithGoogle = (googleProvider) =>{
+    const loginWithGoogle = (googleProvider) => {
         setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
-    const loginWithGithub = (githubProvider) =>{
+    const loginWithGithub = (githubProvider) => {
         setLoading(true)
         return signInWithPopup(auth, githubProvider)
     }

@@ -9,9 +9,7 @@ const Header = () => {
     const handleLogOut = () => {
         logOut()
             .then(result => { })
-            .catch(error => {
-                console.log(error.message)
-            })
+            .catch(error => { })
     }
     return (
         <div className="navbar bg-green-500 shadow-xl">
@@ -25,7 +23,7 @@ const Header = () => {
                         <li><NavLink to='/blog' className={({ isActive }) => (isActive ? 'active' : '')}>Blog</NavLink></li>
                     </ul>
                 </div>
-                <Link to="/" className="text-white btn btn-ghost normal-case -ms-6 md:ms-6 md:text-4xl" style={{fontFamily:'Dancing Script'}}>Food Zone</Link>
+                <Link to="/" className="text-white btn btn-ghost normal-case -ms-6 md:ms-6 md:text-4xl" style={{ fontFamily: 'Dancing Script' }}>Food Zone</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="text-white menu menu-horizontal px-1">

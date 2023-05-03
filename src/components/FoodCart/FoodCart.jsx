@@ -8,7 +8,6 @@ const FoodCart = ({ food }) => {
     return (
         <div className='border-2 rounded-md p-4'>
             <div className='flex shadow-sm justify-evenly items-center py-4 mb-6'>
-            {/* <img className='h-32 w-32 rounded-full opacity-75' src={chefPhoto} alt="" /> */}
                 <LazyLoad height={168}>
                     <img className='h-32 w-32 rounded-full opacity-75' src={chefPhoto} alt="" />
                 </LazyLoad>

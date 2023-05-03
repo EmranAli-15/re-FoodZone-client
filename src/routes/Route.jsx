@@ -25,7 +25,7 @@ const router = createBrowserRouter([
             {
                 path: '/chefRecipe/:id',
                 element: <PrivetRoute><ChefRecipe></ChefRecipe></PrivetRoute>,
-                loader: ({params}) => fetch(`https://chef-recipes-emranali-15.vercel.app/chefRecipe/${params.id}`)
+                loader: ({ params }) => fetch(`https://chef-recipes-emranali-15.vercel.app/chefRecipe/${params.id}`)
             },
             {
                 path: '/login',

@@ -43,7 +43,7 @@ const RecipeCard = ({ data }) => {
                 pauseOnHover
                 theme="light" />
             <div className='flex items-center justify-around'>
-                <img className='w-[200px] h-[200px] rounded-lg' src={image} alt="" />
+                <img className='w-[250px] h-[200px] rounded-lg' src={image} alt="" />
                 <h1 className='text-xl font-medium'>{recipeName}</h1>
             </div>
             <div className='my-4'>
