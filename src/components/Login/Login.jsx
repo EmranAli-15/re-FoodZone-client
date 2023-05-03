@@ -10,7 +10,7 @@ const Login = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || "/category/0";
+    const from = location.state?.from?.pathname || "/";
     const handleCreateUser = (event) => {
         event.preventDefault();
 
