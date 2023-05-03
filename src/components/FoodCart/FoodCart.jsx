@@ -1,13 +1,17 @@
 import React from 'react';
 import { FaHandHoldingHeart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import LazyLoad from 'react-lazy-load';
 
 const FoodCart = ({ food }) => {
     const { id, chefName, chefPhoto, yearsOfExperience, numberOfRecipes, numberOfLikes } = food;
     return (
         <div className='border-2 rounded-md p-4'>
             <div className='flex shadow-sm justify-evenly items-center py-4 mb-6'>
-                <img className='h-32 w-32 rounded-full opacity-75' src={chefPhoto} alt="" />
+            {/* <img className='h-32 w-32 rounded-full opacity-75' src={chefPhoto} alt="" /> */}
+                <LazyLoad height={168}>
+                    <img className='h-32 w-32 rounded-full opacity-75' src={chefPhoto} alt="" />
+                </LazyLoad>
                 <h1 className='text-2xl font-bold'>{chefName}</h1>
             </div>
             <h1 className='text-xl font-medium'>Recipes: {numberOfRecipes} items</h1>
@@ -21,7 +25,7 @@ const FoodCart = ({ food }) => {
                 </div>
                 <button className="btn btn-xs btn-success">
                     <Link to={`/chefRecipe/${id}`}>view recipes</Link>
-                    </button>
+                </button>
             </div>
         </div>
     );
