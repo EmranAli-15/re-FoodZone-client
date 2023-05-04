@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const Register = () => {
-    const { creteUser, updateUser } = useContext(AuthContext);
+    const { creteUser, updateUser, logOut } = useContext(AuthContext);
     const [error, setError] = useState('');
+    const navigate = useNavigate();
     const handleCreateUser = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -13,20 +14,32 @@ const Register = () => {
         const photo = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
+        const confirm = form.confirm.value;
         setError('');
 
+        if (!/(?=.*[!^*#$%&?@].*)(?=.*[A-Z])/.test(password)) {
+            return setError('Password should contain at least a special characters and a upper case');
+        }
         if (password.length < 6) {
             return setError('Password must at least 6 digit');
+        }
+        if (password !== confirm) {
+            return setError('Password not matched')
         }
         else {
             creteUser(email, password)
                 .then(result => {
                     updateUser(result.user, name, photo)
-                        .then(result => { })
+                        .then(result => {
+                            form.reset();
+                            logOut()
+                                .then(result => { })
+                                .catch(error => { })
+                            navigate("/login");
+                        })
                         .catch(error => {
                             setError(error.message);
                         })
-                    form.reset();
                 })
                 .catch(error => {
                     const errorMsg = error.message
@@ -43,11 +56,11 @@ const Register = () => {
                 <form onSubmit={handleCreateUser} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
                         <div className="form-control">
-                            <p className='text-red-500'>{error}</p>
+                            <p className='text-red-500 font-semibold text-center'>{error}</p>
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" name="name" placeholder="enter your name" className="input input-bordered" required />
+                            <input type="text" name="name" placeholder="Your name" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -59,13 +72,19 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" name="email" placeholder="enter your email" className="input input-bordered" required />
+                            <input type="email" name="email" placeholder="Enter your email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name="password" placeholder="enter your password" className="input input-bordered" required />
+                            <input type="password" name="password" placeholder="Enter your password" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Confirm Password</span>
+                            </label>
+                            <input type="password" name="confirm" placeholder="Confirm your password" className="input input-bordered" required />
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>

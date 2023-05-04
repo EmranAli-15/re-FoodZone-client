@@ -60,7 +60,7 @@ const Login = () => {
                 </div>
                 <form onSubmit={handleCreateUser} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
-                        <p className='text-red-500'>{error}</p>
+                        <p className='text-red-500 text-center font-semibold'>{error}</p>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
