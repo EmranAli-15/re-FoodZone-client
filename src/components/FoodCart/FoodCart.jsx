@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaHandHoldingHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import LazyLoad from 'react-lazy-load';
 
@@ -17,12 +17,12 @@ const FoodCart = ({ food }) => {
             <h1 className='text-xl font-semibold'>Experience: {yearsOfExperience} years</h1>
             <div className='flex justify-between place-items-center px-4 mt-6'>
                 <div className='flex items-center gap-x-2'>
-                    <FaHandHoldingHeart className='text-red-400 h-10 w-8'></FaHandHoldingHeart>
+                    <FaHeart className='text-red-500 h-6 w-6'></FaHeart>
                     <h1 className='text-lg'>
                         {numberOfLikes}
                     </h1>
                 </div>
-                <button className="btn btn-xs btn-success">
+                <button className="btn btn-sm btn-success">
                     <Link to={`/chefRecipe/${id}`}>view recipes</Link>
                 </button>
             </div>

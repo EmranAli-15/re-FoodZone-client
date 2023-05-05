@@ -12,7 +12,7 @@ const Header = () => {
             .catch(error => { })
     }
     return (
-        <div className="navbar bg-green-500 shadow-xl">
+        <div className="navbar bg-sky-900 shadow-xl">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost text-white lg:hidden">
@@ -37,7 +37,7 @@ const Header = () => {
                         user && user.displayName
                     }
                 </Tooltip>
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar -mr-4">
                     {
                         user && <div className="w-10 rounded-full">
                             <a className="my-anchor-element"><img src={user.photoURL} /></a>

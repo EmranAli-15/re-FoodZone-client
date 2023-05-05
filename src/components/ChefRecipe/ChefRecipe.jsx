@@ -16,7 +16,7 @@ const ChefRecipe = () => {
                     <div className='flex gap-x-24 mb-6 items-center'>
                         <h2 className="text-3xl font-bold">{chefName}</h2>
                         <div className='flex gap-x-2 items-center'>
-                            <FaHeart className='text-red-400 h-8 w-6'></FaHeart>
+                            <FaHeart className='text-red-500 h-8 w-6'></FaHeart>
                             <p className='font-semibold text-lg'>{numberOfLikes}</p>
                         </div>
                     </div>

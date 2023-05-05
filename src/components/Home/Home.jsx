@@ -38,15 +38,15 @@ const Home = () => {
                     modules={[FreeMode, Pagination]}
                     className="mySwiper"
                 >
-                    <SwiperSlide><img src="https://i.ibb.co/5WQBrT7/noodless.jpg" alt="" /></SwiperSlide>
-                    <SwiperSlide><img src="https://i.ibb.co/HDKMWBH/chicken.jpg" alt="" /></SwiperSlide>
-                    <SwiperSlide><img src="https://i.ibb.co/fnqYWmb/fried-rice.jpg" alt="" /></SwiperSlide>
-                    <SwiperSlide><img src="https://i.ibb.co/5WQBrT7/noodless.jpg" alt="" /></SwiperSlide>
-                    <SwiperSlide><img src="https://i.ibb.co/HDKMWBH/chicken.jpg" alt="" /></SwiperSlide>
-                    <SwiperSlide><img src="https://i.ibb.co/fnqYWmb/fried-rice.jpg" alt="" /></SwiperSlide>
-                    <SwiperSlide><img src="https://i.ibb.co/5WQBrT7/noodless.jpg" alt="" /></SwiperSlide>
-                    <SwiperSlide><img src="https://i.ibb.co/HDKMWBH/chicken.jpg" alt="" /></SwiperSlide>
-                    <SwiperSlide><img src="https://i.ibb.co/fnqYWmb/fried-rice.jpg" alt="" /></SwiperSlide>
+                    <SwiperSlide><img className='rounded-md' src="https://i.ibb.co/5WQBrT7/noodless.jpg" alt="" /></SwiperSlide>
+                    <SwiperSlide><img className='rounded-md' src="https://i.ibb.co/HDKMWBH/chicken.jpg" alt="" /></SwiperSlide>
+                    <SwiperSlide><img className='rounded-md' src="https://i.ibb.co/fnqYWmb/fried-rice.jpg" alt="" /></SwiperSlide>
+                    <SwiperSlide><img className='rounded-md' src="https://i.ibb.co/5WQBrT7/noodless.jpg" alt="" /></SwiperSlide>
+                    <SwiperSlide><img className='rounded-md' src="https://i.ibb.co/HDKMWBH/chicken.jpg" alt="" /></SwiperSlide>
+                    <SwiperSlide><img className='rounded-md' src="https://i.ibb.co/fnqYWmb/fried-rice.jpg" alt="" /></SwiperSlide>
+                    <SwiperSlide><img className='rounded-md' src="https://i.ibb.co/5WQBrT7/noodless.jpg" alt="" /></SwiperSlide>
+                    <SwiperSlide><img className='rounded-md' src="https://i.ibb.co/HDKMWBH/chicken.jpg" alt="" /></SwiperSlide>
+                    <SwiperSlide><img className='rounded-md' src="https://i.ibb.co/fnqYWmb/fried-rice.jpg" alt="" /></SwiperSlide>
                 </Swiper>
             </div>
             <h1 className='text-center mt-16 text-3xl' style={{ fontFamily: 'Dancing Script' }}>

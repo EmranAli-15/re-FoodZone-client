@@ -7,11 +7,16 @@ const Blog = () => {
     return (
         <div>
             <Pdf targetRef={ref} filename="code-example.pdf">
-                {({ toPdf }) => <button className='mx-auto flex items-center text-3xl text-white p-2 bg-green-500 rounded-lg shadow-lg gap-x-2' onClick={toPdf}>Generate Pdf
+                {({ toPdf }) => <button className='mx-auto flex items-center mt-2 text-2xl p-1 rounded-lg shadow-lg gap-x-2' onClick={toPdf}>Generate Pdf
                     <FaDownload className='text-red-500'></FaDownload></button>}
             </Pdf>
             <div ref={ref}>
                 <div className='md:px-8 my-10'>
+                    <section>
+                        <h1 className='text-4xl text-center font bold font-sans mb-6 shadow-sm'>
+                            <i>Here are some most common react questions.</i>
+                        </h1>
+                    </section>
                     <section>
                         <h1 className='text-2xl mb-2'>1. What is the differences between uncontrolled and controlled components ?</h1>
                         <p className='text-lg ps-4'>In React, controlled components refer to components that have their state and behavior controlled by the parent component. These components rely on props passed down from the parent component to update their state and behavior. Uncontrolled components refer to components that manage their own state internally. They use a ref to access the DOM elements current value and update the state accordingly.</p>

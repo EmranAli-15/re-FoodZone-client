@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import Swal from 'sweetalert2'
 
 const Register = () => {
     const { creteUser, updateUser, logOut } = useContext(AuthContext);
@@ -32,6 +33,11 @@ const Register = () => {
                     updateUser(result.user, name, photo)
                         .then(result => {
                             form.reset();
+                            Swal.fire(
+                                'Account Created',
+                                'Now Login You Account',
+                                'success'
+                              )
                             logOut()
                                 .then(result => { })
                                 .catch(error => { })
